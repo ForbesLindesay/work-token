@@ -1,0 +1,52 @@
+{
+  "name": "work-token",
+  "version": "0.0.0",
+  "description": "Simple proof of work generation and verification library based on hashcachgen",
+  "keywords": [],
+  "files": [
+    "./async.js",
+    "./sync.js",
+    "./bin/async-browser.js",
+    "./lib/hashcache.js",
+    "./lib/sha512-browser.js",
+    "./lib/sha512.js",
+    "./lib/worker.js"
+  ],
+  "browser": {
+    "./async.js": "./bin/async-browser.js",
+    "./lib/sha512.js": "./lib/sha512-browser.js"
+  },
+  "dependencies": {
+    "sha.js": "^2.3.6"
+  },
+  "devDependencies": {
+    "brfs": "^1.3.0",
+    "browserify": "^8.1.3",
+    "bundle-collapser": "^1.1.1",
+    "chalk": "^0.5.1",
+    "is-browser": "^2.0.1",
+    "ms": "^0.7.0",
+    "promise": "^6.1.0",
+    "sauce-test": "0.0.6",
+    "test-result": "^1.0.1",
+    "uglify-js": "^2.4.16"
+  },
+  "scripts": {
+    "build:debug": "browserify lib/worker-browser.js > bin/worker-browser.js && brfs lib/async-browser.js > bin/async-browser.js",
+    "build": "browserify lib/worker-browser.js | bundle-collapser | uglifyjs --mangle --compress --screw-ie8 > bin/worker-browser.js && brfs lib/async-browser.js > bin/async-browser.js",
+    "prepublish": "npm run build",
+    "pretest": "npm run build",
+    "test": "node test/sync && node test/async && node test/browser",
+    "test:sync": "npm run pretest && node test/sync && node test/browser sync",
+    "test:async": "npm run pretest && node test/async && node test/browser async",
+    "test:sauce": "node test/sync && node test/async && node test/browser sauce",
+    "test:sauce:sync": "npm run pretest && node test/sync && node test/browser sauce sync",
+    "test:sauce:async": "npm run pretest && node test/async && node test/browser sauce async"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ForbesLindesay/work-token.git"
+  },
+  "author": "ForbesLindesay",
+  "license": "MIT"
+}

@@ -60,7 +60,6 @@ function filterSync(browser, version) {
   }
 }
 function filterAsync(browser, version) {
-  return filterSync(browser, version);
   switch (browser) {
     case 'firefox':
       return version > 8;
@@ -140,7 +139,7 @@ function internalRun(name, filename, filter, user, accessKey) {
       // the async tests can run for a very long time
       // if they are forced to fall back to the fake
       // async method of computation
-      timeout: IS_ASYNC ? '10m' : '5m',
+      timeout: IS_ASYNC ? '15m' : '10m',
       onResult: function (res) {
         if (res.passed) {
           console.log(name + ' ' +

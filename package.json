@@ -1,6 +1,6 @@
 {
   "name": "work-token",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Simple proof of work generation and verification library based on hashcachgen",
   "keywords": [],
   "files": [

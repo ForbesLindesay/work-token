@@ -1,6 +1,4 @@
 'use strict';
-1423750416072
-1423750619817
 
 var ms = require('ms');
 var chalk = require('chalk');
@@ -50,7 +48,14 @@ Promise.all(queue).done(function (passed) {
 function filterSync(browser, version) {
   switch (browser) {
     case 'firefox':
-      return version > 3.6;
+      // It seems to work down to 3.6 but is
+      // increadibly slow
+      return version >= 10;
+    case 'chrome':
+      // it seems to work on all versions of
+      // chrome but nobody actually uses chrome
+      // that old
+      return version >= 10;
     case 'opera':
       return version > 11;
     case 'internet explorer':
@@ -60,12 +65,7 @@ function filterSync(browser, version) {
   }
 }
 function filterAsync(browser, version) {
-  switch (browser) {
-    case 'firefox':
-      return version > 8;
-    default:
-      return filterSync(browser, version);
-  }
+  return filterSync(browser, version);
 }
 
 

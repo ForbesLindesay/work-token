@@ -12,7 +12,11 @@ Simple proof of work generation and verification library based on [hashcachgen](
 
 ## Usage
 
+You can load either the synchronous or asynchronous version of this library and it can be used in the browser via browserify.  We run tests on sauce labs separately so you can see the browser support for both the synchronous and asynchronous tests.
+
 ### Sync
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/work-token.svg)](https://saucelabs.com/u/work-token)
 
 ```js
 'use strict';
@@ -34,6 +38,8 @@ assert(work.check(challenge, 4, workToken));
 ```
 
 ### Async
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/work-token-async.svg)](https://saucelabs.com/u/work-token-async)
 
 Async on the server will spin out a separate worker process for each token you attempt to verify or generate.  On the client, it will attempt to use web-workers if the browser supports them, and will fall back to using `setTimeout` to break the loop every 15ms and avoid blocking the main thread.
 

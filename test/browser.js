@@ -140,7 +140,7 @@ function internalRun(name, filename, filter, user, accessKey) {
       // the async tests can run for a very long time
       // if they are forced to fall back to the fake
       // async method of computation
-      timeout: IS_ASYNC ? '10m' : '20s',
+      timeout: IS_ASYNC ? '10m' : '5m',
       onResult: function (res) {
         if (res.passed) {
           console.log(name + ' ' +

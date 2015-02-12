@@ -71,7 +71,8 @@ function filterAsync(browser, version) {
 
 
 function internalRun(name, filename, filter, user, accessKey) {
-  name = name === 'async' ? chalk.magenta(name) : chalk.blue(name);
+  var IS_ASYNC = name === 'async';
+  name = IS_ASYNC ? chalk.magenta(name) : chalk.blue(name);
   var ENTRIES = [filename];
 
   var USER = user;
@@ -139,7 +140,7 @@ function internalRun(name, filename, filter, user, accessKey) {
       // the async tests can run for a very long time
       // if they are forced to fall back to the fake
       // async method of computation
-      timeout: name === 'async' ? '10m' : '20s',
+      timeout: IS_ASYNC ? '10m' : '20s',
       onResult: function (res) {
         if (res.passed) {
           console.log(name + ' ' +
@@ -147,7 +148,7 @@ function internalRun(name, filename, filter, user, accessKey) {
                       res.version + ' ' +
                       res.platform +
                       ' passed ' +
-                      chalk.cyan( + '(' + ms(res.duration) + ')'));
+                      chalk.cyan('(' + ms(res.duration) + ')'));
         } else {
           failedBrowsers.push(res);
           console.log(name + ' ' +
@@ -155,7 +156,7 @@ function internalRun(name, filename, filter, user, accessKey) {
                                 res.version + ' ' +
                                 res.platform +
                                 ' failed ') +
-                      chalk.cyan( + '(' + ms(res.duration) + ')'));
+                      chalk.cyan('(' + ms(res.duration) + ')'));
           if (res.err) {
             console.error(res.err.stack || res.err.message || res.err);
           }

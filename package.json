@@ -4,15 +4,16 @@
   "description": "Simple proof of work generation and verification library based on hashcachgen",
   "keywords": [],
   "files": [
-    "./async.js",
-    "./sync.js",
-    "./bin/async-browser.js",
-    "./lib/hashcache.js",
-    "./lib/sha512-browser.js",
-    "./lib/sha512.js",
-    "./lib/worker.js"
+    "async.js",
+    "sync.js",
+    "bin/async-browser.js",
+    "lib/hashcache.js",
+    "lib/sha512-browser.js",
+    "lib/sha512.js",
+    "lib/worker.js"
   ],
   "browser": {
+    "./async": "./bin/async-browser.js",
     "./async.js": "./bin/async-browser.js",
     "./lib/sha512.js": "./lib/sha512-browser.js"
   },

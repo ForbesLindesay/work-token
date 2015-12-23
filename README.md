@@ -5,7 +5,7 @@ Simple proof of work generation and verification library based on [hashcachgen](
 Proudly in use on [iamthefold](https://github.com/iest/i-am-the-fold) to prevent unscrupulous individuals from abusing the site.
 
 [![Build Status](https://img.shields.io/travis/ForbesLindesay/work-token/master.svg)](https://travis-ci.org/ForbesLindesay/work-token)
-[![Dependency Status](https://img.shields.io/gemnasium/ForbesLindesay/work-token.svg)](https://gemnasium.com/ForbesLindesay/work-token)
+[![Dependency Status](https://img.shields.io/david/ForbesLindesay/work-token.svg)](https://david-dm.org/ForbesLindesay/work-token)
 [![NPM version](https://img.shields.io/npm/v/work-token.svg)](https://www.npmjs.org/package/work-token)
 
 ## Installation

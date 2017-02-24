@@ -1,5 +1,7 @@
 # work-token
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/work-token.svg)](https://greenkeeper.io/)
+
 Simple proof of work generation and verification library based on [hashcachgen](https://github.com/carlos8f/node-hashcashgen).  It works on node.js and in web browsers.  The idea is that this can be used as an alternative to throttling on a web API.  Instead of throttling, you give each client a challenge, it then performs a computationally hard problem on the challenge to produce a "work token".  This can then be sent along with a request to the API.  The server is then able to easilly verify that the work has been performed.  Someone who wishes to abuse your API by sending large numbers of requests would then need to spend large amounts of time computing the work tokens.
 
 Proudly in use on [iamthefold](https://github.com/iest/i-am-the-fold) to prevent unscrupulous individuals from abusing the site.
